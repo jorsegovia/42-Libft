@@ -27,14 +27,14 @@ Description
 
 #include "libft.h"
 
-int ft_getabs(int n)
+int	ft_getabs(int n)
 {
 	if (n < 0)
 		return (n * -1);
 	return (n);
 }
 
-void ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	char	str[13];
 	int	neg;

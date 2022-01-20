@@ -25,7 +25,9 @@ Description
 	Negative numbers must be handled
 */
 
-char *ft_itoa(int n)
+#include "libft.h"
+
+char	*ft_itoa(int n)
 {
 	
 }

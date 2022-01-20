@@ -28,7 +28,9 @@ Description
 	resulting from successive applications of ’f
 */
 
-char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+#include "libft.h"
+
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 
 }

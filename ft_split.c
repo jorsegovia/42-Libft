@@ -28,7 +28,9 @@ Description
 	The array must end with a NULL pointer
 */
 
-char **ft_split(char const *s, char c)
+#include "libft.h"
+
+char	**ft_split(char const *s, char c)
 {
 
 }
