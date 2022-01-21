@@ -26,7 +26,7 @@ RETURN VALUES
 
 #include "libft.h"
 
-char *ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	int	count;
 
@@ -36,7 +36,7 @@ char *ft_strrchr(const char *s, int c)
 	while (count >= 0)
 	{
 		if (s[count] == (char)c)
-			return ((char*)(s + count));
+			return ((char *)(s + count));
 		count--;
 	}
 	return (NULL);
