@@ -15,11 +15,12 @@ int
 isprint(int c);
 
 DESCRIPTION
-	The isprint() function tests for any printing character, including space (` ').  The value of the argument
-	must be representable as an unsigned char or the value of EOF.
+	The isprint() function tests for any printing character, including space 
+	(` ').  The value of the argument 	must be representable as an unsigned 
+	char or the value of EOF.
 
-	In the ASCII character set, this includes the following characters (preceded by their numeric values, in
-	octal):
+	In the ASCII character set, this includes the following characters 
+	(preceded by their numeric values, in octal):
 
 	040 sp		041 ``!''	042 ``"''	043 ``#''	044 ``$''
 	045 ``%''	046 ``&''	047 ``'''	050 ``(''	051 ``)''
@@ -42,7 +43,8 @@ DESCRIPTION
 	172 ``z''	173 ``{''	174 ``|''	175 ``}''	176 ``~''
 
 RETURN VALUES
-	The isprint() function returns zero if the character tests false and returns non-zero if the character
+	The isprint() function returns zero if the character tests false 
+	and returns non-zero if the character
 	tests true.
 */
 #include "libft.h"

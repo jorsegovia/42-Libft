@@ -15,7 +15,8 @@ size_t
 strlcpy(char * restrict dst, const char * restrict src, size_t dstsize);
 
 DESCRIPTION
-	strlcpy() takes the full size of the destination buffer and guarantees NUL-termination if there is room.
+	strlcpy() takes the full size of the destination buffer and guarantees 
+	NUL-termination if there is room.
 	Note that room for the NUL should be included in dstsize.
 
 	strlcpy() copies up to dstsize - 1 characters from the string src to dst,
@@ -24,15 +25,15 @@ DESCRIPTION
 	If the src and dst strings overlap, the behavior is undefined.
 
 RETURN VALUES
-	Like snprintf(3), strlcpy() returns the total length of the string they tried to
-	create. For strlcpy() that means the length of src.
+	Like snprintf(3), strlcpy() returns the total length of the string 
+	they tried to create. For strlcpy() that means the length of src.
 
 	If the return value is >= dstsize, the output string has been truncated.
 	It is the caller's responsibility to handle this.
 */
 #include "libft.h"
 
-size_t	ft_strlcpy(char * restrict dst, const char * restrict src, size_t dstsize)
+size_t	ft_strlcpy(char *restrict dst, const char *restrict src, size_t dstsize)
 {
 	size_t	count;
 
