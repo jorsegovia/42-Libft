@@ -1,37 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsegovia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 11:43:45 by jsegovia          #+#    #+#             */
-/*   Updated: 2022/01/18 11:43:47 by jsegovia         ###   ########.fr       */
+/*   Created: 2022/01/21 11:41:49 by jsegovia          #+#    #+#             */
+/*   Updated: 2022/01/21 11:41:51 by jsegovia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-size_t
-strlen(const char *s);
+
+char *
+strrchr(const char *s, int c);
 
 DESCRIPTION
-	The strlen() function computes the length of the string s.
+	The strrchr() function is identical to strchr(), 
+	except it locates the last occurrence of c.
 
 RETURN VALUES
-	The strlen() function returns the number of characters that precede the 
-	terminating NUL character.
+	The functions strchr() and strrchr() return a pointer to the 
+	located character, or NULL if the character does not appear in the string.
 */
+
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strrchr(const char *s, int c)
 {
-	size_t	count;
+	int	count;
 
-	if (!s)
-		return (0);
 	count = 0;
-	//while (s[count] != '\0')
 	while (s[count])
 		count++;
-	return (count);
+	while (count >= 0)
+	{
+		if (s[count] == (char)c)
+			return ((char *)(s + count));
+		count--;
+	}
+	return (NULL);
 }
