@@ -28,5 +28,26 @@ Description
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	
+	char	*str;
+	size_t	count;
+	size_t	counter;
+
+	str = (char*)malloc(sizeof(*s1) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!str)
+		return (NULL);
+	count = 0;
+	counter = 0;
+	while (s1[count])
+	{
+		str[counter++] = s1[count];
+		count++;
+	}
+	count = 0;
+	while (s2[count])
+	{
+		str[counter++] = s2[count];
+		count++;
+	}
+	str[counter] = 0;
+	return (str);
 }
