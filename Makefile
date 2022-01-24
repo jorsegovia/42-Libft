@@ -8,13 +8,14 @@ ADD_SRCS =	ft_itoa.c ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 			ft_putstr_fd ft_split.c ft_striteri.c ft_strjoin.c ft_strmapi.c \
 			ft_strtrim.c ft_substr.c \
 
-BONUS_SRCS =	
+BONUS_SRCS =	ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c \
+				ft_lstiter.c ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c
 
-BASE_OBJS = ${SRCS:.c=.o}
+BASE_OBJS = $(SRCS:.c=.o)
 
-ADD_OBJS = ${SRCS:.c=.o}
+ADD_OBJS = $(SRCS:.c=.o)
 
-BONUS_OBJS = ${BONUS_SRCS:.c=.o}
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 CC		= gcc
 RM		= rm -f
@@ -40,10 +41,10 @@ TEST:	$(BASE_OBJS) $(ADD_OBJS)
 		cc -o TEST $(BASE_OBJS) $(ADD_OBJS)
 
 clean:
-		${RM} $(BASE_OBJS) $(ADD_OBJS) ${BONUS_OBJS}
+		$(RM) $(BASE_OBJS) $(ADD_OBJS) $(BONUS_OBJS)
 
 fclean:	clean
-		${RM} ${NAME}
+		$(RM) $(NAME)
 
 re:		fclean all
 
