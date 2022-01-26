@@ -50,6 +50,6 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		c++;
 	}
 	if (c < n)
-		return comp_char(s1[c], s2[c]);
+		return (comp_char(s1[c], s2[c]));
 	return (0);
 }
