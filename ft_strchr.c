@@ -30,8 +30,6 @@ char	*ft_strchr(const char *s, int c)
 {
 	size_t	count;
 
-	//if (!s)
-	//	return (NULL);
 	count = 0;
 	while (s[count] != '\0')
 	{
