@@ -26,25 +26,25 @@ RETURN VALUES
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned int	c;
+	int	c;
 
 	if (!dst || !src)
 		return (NULL);
 	if (dst > src)
 	{
-		c = (len - 1);
-		while (c > 0)
+		c = (int) len - 1;
+		while (c >= 0)
 		{
-			(*(unsigned char *)(dst + c)) = (*(unsigned char *)(src + c));
+			*(unsigned char *)(dst + c) = *(unsigned char *)(src + c);
 			c--;
 		}
 	}
 	else
 	{
 		c = 0;
-		while (c < len)
+		while (c < (int) len)
 		{
-			(*(unsigned char *)(dst + c)) = (*(unsigned char *)(src + c));
+			*(unsigned char *)(dst + c) = *(unsigned char *)(src + c);
 			c++;
 		}
 	}
