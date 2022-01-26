@@ -32,7 +32,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	count;
 	size_t	counter;
 
-	str = (char*)malloc(sizeof(*s1) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	str = (char *)malloc(sizeof(*s1) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!str)
 		return (NULL);
 	count = 0;
