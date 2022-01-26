@@ -35,16 +35,15 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	unsigned int	count;
 	unsigned int	counter;
 
-	if (!haystack || !needle)
-		return (NULL);
-	if (!needle || !needle[0])
+	if (!needle[0])
 		return ((char *)haystack);
 	count = 0;
 	counter = 0;
 	while (haystack[count] != '\0' && count < len)
 	{
 		while (haystack[count + counter] == needle[counter]
-			&& (count + counter < len))
+			&& (count + counter < len) && haystack[count + counter]
+			&& needle [counter])
 		{
 			counter++;
 		}
