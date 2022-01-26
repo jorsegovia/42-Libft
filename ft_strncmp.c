@@ -31,18 +31,27 @@ RETURN VALUES
 */
 #include "libft.h"
 
+static int	comp_char(char c1, char c2)
+{
+	if ((unsigned char)c1 != (unsigned char)c2)
+		return ((unsigned char)c1 - (unsigned char)c2);
+	return (0);
+}
+
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	unsigned int	c;
-	int				result;
 
-	if (!s1 || !s2)
-		return (0);
+	//if (!s1 || !s2)
+	//	return (0);
 	c = 0;
-	while (c < n)
+	while (c < n && s1[c] && s2[c])
 	{
-		result = s1[c] - s2[c];
+		if (comp_char(s1[c], s2[c]))
+			return (s1[c] - s2[c]);
 		c++;
 	}
-	return (result);
+	if (c < n)
+		return comp_char(s1[c], s2[c]);
+	return (0);
 }
