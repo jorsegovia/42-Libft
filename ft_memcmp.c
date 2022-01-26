@@ -33,8 +33,6 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t	c;
 
-	if (!s1 || !s2)
-		return (0);
 	c = 0;
 	while (c < n)
 	{
