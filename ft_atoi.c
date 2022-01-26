@@ -23,28 +23,26 @@ DESCRIPTION
 */
 #include "libft.h"
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
-	int	i;
 	int	res;
 	int	negative;
 
-	if (!str)
-		return (0);
-	i = 0;
-	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\r'
-		|| str[i] == '\v' || str[i] == '\f' || str[i] == ' ')
-		i++;
-	if (str[i] == '-')
+	negative = 1;
+	res = 0;
+	while (*str == '\t' || *str == '\n' || *str == '\r'
+		|| *str == '\v' || *str == '\f' || *str == ' ')
+		++str;
+	if (*str == '-')
 		negative = -1;
 	else
 		negative = 1;
-	if (negative == -1 || str[i] == '+')
-		i++;
-	res = 0;
-	while (str[i] && str[i] >= '0' && str[i] <= '9')
+	if (negative == -1 || *str == '+')
+		++str;
+	while (*str && *str >= '0' && *str <= '9')
 	{
-		res = res * 10 + (str[i++] - '0');
+		res = res * 10 + (*str - 48);
+		++str;
 	}
 	return (res * negative);
 }
