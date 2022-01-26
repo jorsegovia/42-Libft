@@ -42,8 +42,6 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	unsigned int	c;
 
-	//if (!s1 || !s2)
-	//	return (0);
 	c = 0;
 	while (c < n && s1[c] && s2[c])
 	{
