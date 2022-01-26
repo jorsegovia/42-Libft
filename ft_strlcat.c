@@ -30,14 +30,14 @@ DESCRIPTION
 
 RETURN VALUES
 	strlcat() returns the total length of the string they tried to create.
-	For strlcat() that means the initial length of dst plus the length of src.
+	That means the initial length of dst plus the length of src.
 
 	If the return value is >= dstsize, the output string has been truncated.
 	It is the caller's responsibility to handle this.
 */
 #include "libft.h"
 
-size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsize)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	count;
 	size_t	counter;
