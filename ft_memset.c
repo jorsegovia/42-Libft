@@ -27,8 +27,6 @@ void	*ft_memset(void *b, int c, size_t len)
 {
 	size_t	count;
 
-	if (!b || !c)
-		return (NULL);
 	count = 0;
 	while (count < len)
 	{

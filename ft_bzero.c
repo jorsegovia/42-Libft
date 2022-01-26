@@ -24,8 +24,6 @@ void	ft_bzero(void *s, int n)
 {
 	int	count;
 
-	if (!s)
-		return ;
 	count = 0;
 	while (count < n)
 	{
