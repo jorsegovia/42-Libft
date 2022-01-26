@@ -33,7 +33,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		c = (int) len - 1;
 		while (c >= 0)
 		{
-			*(unsigned char *)(dst + c) = *(unsigned char *)(src + c);
+			*(char *)(dst + c) = *(char *)(src + c);
 			c--;
 		}
 	}
@@ -42,7 +42,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		c = 0;
 		while (c < (int) len)
 		{
-			*(unsigned char *)(dst + c) = *(unsigned char *)(src + c);
+			*(char *)(dst + c) = *(char *)(src + c);
 			c++;
 		}
 	}
