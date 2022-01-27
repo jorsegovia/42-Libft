@@ -21,13 +21,15 @@ External functs.
 	malloc
 
 Description
-	Allocates (with malloc(3)) and returns a string representing the integer received as an argument.
-	Negative numbers must be handled
+	Allocates (with malloc(3)) and returns a string representing
+	the integer received as an argument.
+	Negative numbers must be handled.
 */
 
 #include "libft.h"
-
+/*
 char	*ft_itoa(int n)
 {
-	
+
 }
+*/
