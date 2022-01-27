@@ -27,25 +27,21 @@ Description
 
 #include "libft.h"
 
-int	ft_getabs(int n)
-{
-	if (n < 0)
-		return (n * -1);
-	return (n);
-}
-
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	str[13];
-	int	neg;
-	int	len;
+	long int	num;
 
-	neg = 1;
-	if (n == 0)
-		str[0] = '0';
-	len = 0;
-	while (n != 0)
+	num = n;
+	if (num < 0)
 	{
-
+		ft_putchar_fd('-', fd);
+		num = num * -1;
 	}
+	if (num >= 10)
+	{
+		ft_putnbr_fd(num / 10, fd);
+		ft_putnbr_fd(num % 10, fd);
+	}
+	else
+		ft_putchar_fd(num % 10 + '0', fd);
 }
