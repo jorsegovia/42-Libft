@@ -26,7 +26,7 @@ DESCRIPTION
 int	ft_atoi(const char *str)
 {
 	unsigned long long int	res;
-	int	negative;
+	int						negative;
 
 	negative = 1;
 	res = 0;

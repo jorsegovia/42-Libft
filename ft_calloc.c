@@ -31,7 +31,8 @@ void	*ft_calloc(size_t count, size_t size)
 	char	*ptr;
 	size_t	i;
 
-	if (!(ptr = malloc(size * count)))
+	ptr = malloc(size * count);
+	if (!ptr)
 		return (NULL);
 	i = 0;
 	while (i < (size * count))
