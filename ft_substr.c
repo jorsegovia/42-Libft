@@ -32,5 +32,16 @@ Description
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
+	char	*substr;
 
+	if (!s)
+		return (NULL);
+	if (start > ft_strlen((char *)s))
+		return ((char *)ft_calloc(1, '\0'));
+	substr = malloc(sizeof(char) * (len + 1));
+	if (!substr)
+		return (NULL);
+	ft_memcpy(substr, s + start, len);
+	substr[len] = '\0';
+	return (substr);
 }
