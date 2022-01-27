@@ -25,7 +25,7 @@ RETURN VALUES
 	If there is an error, they return a NULL pointer and set errno to ENOMEM.
 */
 #include "libft.h"
-
+/*
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
@@ -35,4 +35,35 @@ void	*ft_calloc(size_t count, size_t size)
 		return (NULL);
 	ft_bzero(ptr, count);
 	return (ptr);
+}*/
+
+/*
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*ptr;
+
+	i = 0;
+	if (!(ptr = malloc(size * count)))
+		return (NULL);
+	//ft_memset(memory, 0, count * size);
+	ft_bzero(ptr, count);
+
+	return ((void *)ptr);
+}
+*/
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	char	*ptr;
+	size_t	i;
+
+	if (!(ptr = malloc(size * count)))
+		return (NULL);
+	i = 0;
+	while (i < (size * count))
+	{
+		ptr[i] = 0;
+		i++;
+	}
+	return ((void *)ptr);
 }
