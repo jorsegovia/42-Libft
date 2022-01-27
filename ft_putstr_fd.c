@@ -29,7 +29,11 @@ Description
 
 void	ft_putstr_fd(char *s, int fd)
 {
+	int	c;
+
 	if (!s)
 		return ;
-	write(fd, s, ft_strlen(s));
+	c = -1;
+	while (s[++c])
+		write(fd, &s[c], 1);
 }
