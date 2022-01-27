@@ -5,7 +5,7 @@ SRCS	=	ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
 			ft_strnstr.c ft_tolower.c ft_toupper.c
 
 ADDS	=	ft_itoa.c ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
-			ft_putstr_fd ft_split.c ft_striteri.c ft_strjoin.c ft_strmapi.c \
+			ft_putstr_fd.c ft_split.c ft_striteri.c ft_strjoin.c ft_strmapi.c \
 			ft_strtrim.c ft_substr.c
 
 BONUS	=	ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c \
@@ -20,7 +20,7 @@ BONUS	=	ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c \
 OBJS	=	$(SRCS:.c=.o)
 #OBJS	=	$(PREF:.c=.o)
 
-OBJS_A	=	$(SRCS:.c=.o)
+OBJS_A	=	$(ADDS:.c=.o)
 
 OBJS_B	=	$(BONUS:.c=.o)
 
