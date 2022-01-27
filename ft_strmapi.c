@@ -41,11 +41,11 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (!result)
 		return (NULL);
 	c = 0;
-	while (s[i])
+	while (s[c])
 	{
 		result[c] = f(c, (char *)s[c]);
-		i++;
+		c++;
 	}
-	result[i] = "\0";
+	result[c] = "\0";
 	return (result);
 }
