@@ -25,7 +25,7 @@ DESCRIPTION
 
 int	ft_atoi(const char *str)
 {
-	int	res;
+	unsigned long long int	res;
 	int	negative;
 
 	negative = 1;
@@ -43,5 +43,9 @@ int	ft_atoi(const char *str)
 		res = res * 10 + (*str - 48);
 		++str;
 	}
+	if (res > 9223372036854775807 && negative < 0)
+		return (0);
+	if (res > 9223372036854775807 && negative > 0)
+		return (-1);
 	return (res * negative);
 }
