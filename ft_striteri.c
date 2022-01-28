@@ -34,7 +34,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	int	c;
 
 	if (!s)
-		return;
+		return ;
 	c = 0;
 	while (s[c])
 	{
