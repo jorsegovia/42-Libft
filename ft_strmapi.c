@@ -43,7 +43,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	c = 0;
 	while (s[c])
 	{
-		result[c] = f(c, (char *)s[c]);
+		result[c] = f(c, ((char *)s)[c]);
 		c++;
 	}
 	result[c] = "\0";
