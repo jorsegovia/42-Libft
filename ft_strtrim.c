@@ -28,9 +28,46 @@ Description
 */
 
 #include "libft.h"
-/*
+
+static int	ft_checkset(char const *set, char c)
+{
+	size_t size;
+
+	size = 0;
+	while (set[size])
+	{
+		if(set[size] == c)
+			return (1);
+		size++;
+	}
+	return(0);
+}
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
+	char	*res;
+	size_t	start;
+	size_t	end;
+	size_t	len;
 
+	if (!s1)
+		return (NULL);
+	start = 0;
+	end = ft_strlen(s1);
+	//frontstart
+	while (s1[start] && ft_checkset(set, s1[start]))
+		start++;
+	//backstart
+	while (end > start && ft_checkset(set, s1[end - 1]))
+		end--;
+	//save the trimmed result
+	res = (char*)malloc(sizeof(*s1) * (end - start + 1));
+	if (!res)
+		return (NULL);
+	//add the ending \0
+	len = 0;
+	while (start < end)
+		res[len++] = s1[start++];
+	res[len] = 0;
+	return (res);
 }
-*/
