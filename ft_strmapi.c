@@ -33,7 +33,7 @@ Description
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char	*result;
-	int	c;
+	int		c;
 
 	if (!s)
 		return (NULL);
@@ -46,6 +46,6 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		result[c] = f(c, ((char *)s)[c]);
 		c++;
 	}
-	result[c] = "\0";
+	result[c] = '\0';
 	return (result);
 }
