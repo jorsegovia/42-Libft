@@ -29,9 +29,32 @@ Description
 */
 
 #include "libft.h"
-/*
+
+
 char	**ft_split(char const *s, char c)
 {
+	char	**arr;
+	char	*aux;
+	size_t	pos;
+	size_t	count;
+	size_t	num;
 
+	count = 0;
+	num = 0;
+	//travel str
+	while (s[count] != '\0')
+	{
+		if (s[count] == c) //find char
+		{
+			pos = count;	//save position
+			while (s[count++] != c)	//find nex occur of char
+				count++;
+			aux = malloc(sizeof(*s) * (count - pos + 1));	//allocate memory
+			if (!aux)
+				return (NULL);
+			arr[num++] = aux;
+		}
+		count++;
+	}
+	return (arr);
 }
-*/
