@@ -15,9 +15,11 @@ Parameters
 lst: The address of a pointer to a node.
 del: The address of the function used to delete the content of the node.
 
-Return value None
+Return value
+	None
 
-External functs. free
+External functs
+	free
 
 Description
 	Deletes and frees the given node and every successor
@@ -29,5 +31,15 @@ Description
 
 void ft_lstclear(t_list **lst, void (*del)(void*))
 {
+	t_list	*temp;
 
+	if (!lst || !del)
+		return ;
+	while (*lst)
+	{
+		temp = (*lst)->next;		//save the next position before use of current
+		(*del)((*lst)->content);	//apply del to content
+		free(*lst);					//free current mem postion
+		*lst = temp;				//load next position from temp
+	}
 }
