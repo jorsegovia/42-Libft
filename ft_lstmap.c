@@ -33,5 +33,11 @@ Description
 
 t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
+	t_list *res;
+	t_list *temp;
 
+	//Check if lst exists and if its content is valid
+	if (!lst || !(temp = ft_lstnew(f(lst->content))))
+		return (NULL);
+	res = temp;
 }
