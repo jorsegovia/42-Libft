@@ -29,5 +29,15 @@ Description
 
 void ft_lstadd_back(t_list **lst, t_list *new)
 {
-	
+	t_list	*temp;
+
+	if (!lst)	//check if lst exists
+		return;
+	if (*lst == NULL)	//check for empty list
+		*lst = new;		//asign new as value to lst
+	else
+	{
+		temp = ft_lstlast(*lst);	//goto last position
+		temp->next = new;			//add new to list
+	}
 }
