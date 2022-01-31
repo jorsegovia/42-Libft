@@ -25,5 +25,14 @@ Description
 
 int ft_lstsize(t_list *lst)
 {
+	int		count;
+	t_list	*next;
 
+	next = lst;	//Set the placeholder list
+	while (next != NULL)	//Loop to count nodes
+	{
+		next = next -> next;
+		count++;
+	}
+	return (count);
 }
