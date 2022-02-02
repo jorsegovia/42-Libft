@@ -37,7 +37,19 @@ t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list *temp;
 
 	//Check if lst exists and if its content is valid
-	if (!lst || !(temp = ft_lstnew(f(lst->content))))
+	temp = ft_lstnew(f(lst->content));
+	if (!lst || !temp)
 		return (NULL);
 	res = temp;
+	while (lst->next)	//run through the list
+	{
+		lst = lst->next;
+		if (!(temp->next = ft_lstnew(f(lst->content))))	//Apply f to each node
+		{
+			ft_lstclear(&res, del);	//if not possible clear and return
+			return (NULL);
+		}
+		temp = temp->next;
+	}
+	return (res);
 }
