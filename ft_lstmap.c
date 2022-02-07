@@ -38,8 +38,10 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*res;
 	t_list	*temp;
 
+	if(!lst)
+		return (NULL);
 	temp = ft_lstnew(f(lst->content));
-	if (!lst || !temp)
+	if (!temp)
 		return (NULL);
 	res = temp;
 	while (lst->next)
