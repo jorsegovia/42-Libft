@@ -29,14 +29,17 @@ Description
 
 #include "libft.h"
 
-t_list *ft_lstnew(void *content)
+t_list	*ft_lstnew(void *content)
 {
-	t_list *list;
+	t_list	*list;
 
-	list = malloc(sizeof(t_list) * 1);	//try to allocate memory
+	list = malloc(sizeof(t_list) * 1);
 	if (!list)
 		return (NULL);
-	list->content = content;	//load variables as requested
+	list->content = content;
 	list->next = NULL;
 	return (list);
 }
+
+//36: try to allocate memory
+//39: load variables as requested
