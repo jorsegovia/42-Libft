@@ -29,23 +29,6 @@ Description
 */
 
 #include "libft.h"
-/*
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char	*substr;
-
-	if (!s)
-		return (NULL);
-	if (start > ft_strlen((char *)s))
-		return ((char *)ft_calloc(1, '\0'));
-	substr = malloc(sizeof(char) * (len + 1));
-	if (!substr)
-		return (NULL);
-	ft_memcpy(substr, s + start, len);
-	substr[len] = '\0';
-	return (substr);
-}
-*/
 
 char
 	*ft_substr(char const *s, unsigned int start, size_t len)
@@ -54,11 +37,13 @@ char
 	size_t	j;
 	char	*substr;
 
-	substr = (char *)malloc(sizeof(*s) * (len + 1));
-	if (!s || !substr)
+	if (!s)
 		return (NULL);
 	if (start > ft_strlen((char *)s))
 		return ((char *)ft_calloc(1, '\0'));
+	substr = (char *)malloc(sizeof(*s) * (len + 1));
+	if (!substr)
+		return (NULL);
 	i = 0;
 	j = 0;
 	while (s[i])
