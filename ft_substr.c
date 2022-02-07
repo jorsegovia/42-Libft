@@ -39,8 +39,6 @@ char
 
 	if (!s)
 		return (NULL);
-	if (start > ft_strlen((char *)s))
-		return ((char *)ft_calloc(1, '\0'));
 	if (len >= ft_strlen(s))
 		len = ft_strlen(s);
 	substr = (char *)malloc(sizeof(*s) * (len + 1));
