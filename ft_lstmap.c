@@ -14,7 +14,7 @@
 Parameters
 	lst: The address of a pointer to a node.
 	f: The address of the function used to iterate on the list.
-	del: The address of the function used to delete the content of a node if needed.
+	del: The address of the function used to delete the content of a node.
 
 Return value 
 	The new list.
@@ -31,24 +31,21 @@ Description
 
 #include "libft.h"
 
-t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list *res;
-	t_list *temp;
+	t_list	*res;
+	t_list	*temp;
 
-	//Check if lst exists and if its content is valid
 	temp = ft_lstnew(f(lst->content));
 	if (!lst || !temp)
 		return (NULL);
 	res = temp;
-	//run through the list
 	while (lst->next)
 	{
 		lst = lst->next;
-		//Apply f to each node
-		if (!(temp->next = ft_lstnew(f(lst->content))))
+		temp->next = ft_lstnew(f(lst->content));
+		if (!temp)
 		{
-			//if not possible clear and return
 			ft_lstclear(&res, del);
 			return (NULL);
 		}
@@ -56,3 +53,7 @@ t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}
 	return (res);
 }
+//39: Check if lst exists and if its content is valid
+//43: run through the list
+//46: Apply f to each node
+//48: if not possible clear and return
