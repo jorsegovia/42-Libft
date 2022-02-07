@@ -12,14 +12,15 @@
 
 #include <stdlib.h>
 #include <unistd.h>
+#include <sys/errno.h>
 
-typedef	struct	s_list
+typedef struct s_list
 {
-	void	*content;
+	void			*content;
 	struct s_list	*next;
 }t_list;
 
-typedef struct	s_split_next
+typedef struct s_split_next
 {
 	size_t	start;
 	size_t	length;
@@ -42,7 +43,7 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strdup(const char *s1);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
-size_t	ft_strlcpy(char *dst, const char * src, size_t dstsize);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlen(const char *s);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
