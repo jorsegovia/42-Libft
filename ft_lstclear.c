@@ -29,7 +29,7 @@ Description
 
 #include "libft.h"
 
-void ft_lstclear(t_list **lst, void (*del)(void*))
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list	*temp;
 
@@ -37,9 +37,13 @@ void ft_lstclear(t_list **lst, void (*del)(void*))
 		return ;
 	while (*lst)
 	{
-		temp = (*lst)->next;		//save the next position before use of current
-		(*del)((*lst)->content);	//apply del to content
-		free(*lst);					//free current mem postion
-		*lst = temp;				//load next position from temp
+		temp = (*lst)->next;
+		(*del)((*lst)->content);
+		free(*lst);
+		*lst = temp;
 	}
 }
+//40: save the next position before use of current
+//41: apply del to content
+//42: free current mem postion
+//43: load next position from temp
