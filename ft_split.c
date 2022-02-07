@@ -32,7 +32,7 @@ Description
 
 static void	memfree(char **res, int n)
 {
-	int count;
+	int	count;
 
 	count = -1;
 	while (++count <= n)
@@ -48,7 +48,8 @@ static char	*setword(char c, char const *s)
 	count = 0;
 	while (s[count] && c != s[count])
 		count++;
-	if (!(word = malloc(sizeof(char) * (count + 1))))
+	word = malloc(sizeof(char) * (count + 1));
+	if (!word)
 		return (NULL);
 	count = -1;
 	while (s[++count] && c != s[count])
@@ -59,8 +60,8 @@ static char	*setword(char c, char const *s)
 
 static int	countword(char const *s, char c)
 {
-	int count;
-	int res;
+	int	count;
+	int	res;
 
 	count = 0;
 	res = 0;
@@ -76,7 +77,7 @@ static int	countword(char const *s, char c)
 	return (res);
 }
 
-char		**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	int		count;
 	int		counter;

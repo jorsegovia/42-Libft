@@ -31,16 +31,16 @@ Description
 
 static int	ft_checkset(char const *set, char c)
 {
-	size_t size;
+	size_t	size;
 
 	size = 0;
 	while (set[size])
 	{
-		if(set[size] == c)
+		if (set[size] == c)
 			return (1);
 		size++;
 	}
-	return(0);
+	return (0);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
@@ -61,7 +61,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (end > start && ft_checkset(set, s1[end - 1]))
 		end--;
 	//save the trimmed result
-	res = (char*)malloc(sizeof(*s1) * (end - start + 1));
+	res = (char *)malloc(sizeof(*s1) * (end - start + 1));
 	if (!res)
 		return (NULL);
 	//add the ending \0
