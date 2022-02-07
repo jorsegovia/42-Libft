@@ -37,7 +37,6 @@ t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list *temp;
 
 	//Check if lst exists and if its content is valid
-	if (!lst || !(temp = ft_lstnew(f(lst->content))))
 	temp = ft_lstnew(f(lst->content));
 	if (!lst || !temp)
 		return (NULL);
