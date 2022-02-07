@@ -29,7 +29,7 @@ Description
 */
 
 #include "libft.h"
-
+/*
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*substr;
@@ -43,5 +43,33 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	ft_memcpy(substr, s + start, len);
 	substr[len] = '\0';
+	return (substr);
+}
+*/
+
+char
+	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	size_t	i;
+	size_t	j;
+	char	*substr;
+
+	substr = (char *)malloc(sizeof(*s) * (len + 1));
+	if (!s || !substr)
+		return (NULL);
+	if (start > ft_strlen((char *)s))
+		return ((char *)ft_calloc(1, '\0'));
+	i = 0;
+	j = 0;
+	while (s[i])
+	{
+		if (i >= start && j < len)
+		{
+			substr[j] = s[i];
+			j++;
+		}
+		i++;
+	}
+	substr[j] = 0;
 	return (substr);
 }
