@@ -27,17 +27,23 @@ Description
 
 #include "libft.h"
 
-void ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*temp;
 
-	if (!lst)	//check if lst exists
-		return;
-	if (*lst == NULL)	//check for empty list
-		*lst = new;		//asign new as value to lst
+	if (!lst)
+		return ;
+	if (*lst == NULL)
+		*lst = new;
 	else
 	{
-		temp = ft_lstlast(*lst);	//goto last position
-		temp->next = new;			//add new to list
+		temp = ft_lstlast(*lst);
+		temp->next = new;
 	}
 }
+
+//34: check if lst exists
+//36: check for empty list
+//37: asign new as value to lst
+//40: goto last position
+//41: add new to list
