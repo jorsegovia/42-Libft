@@ -23,17 +23,20 @@ Description
 
 #include "libft.h"
 
-int ft_lstsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
 	int		count;
 	t_list	*next;
 
 	count = 0;
-	next = lst;	//Set the placeholder list
-	while (next != NULL)	//Loop to count nodes
+	next = lst;
+	while (next != NULL)
 	{
 		next = next -> next;
 		count++;
 	}
 	return (count);
 }
+
+//32: Set the placeholder list
+//33: Loop to count nodes
