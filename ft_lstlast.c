@@ -25,5 +25,17 @@ Description
 
 t_list *ft_lstlast(t_list *lst)
 {
-	
+	t_list	*temp;
+
+	if (lst != NULL)
+	{
+		temp = lst;
+		while (1)	//permanent loop to find the last
+		{	//If try to assing next = NULL; current is last node
+			if (temp->next == NULL)
+				return (temp);
+			temp = temp->next;
+		}
+	}
+	return (NULL);	//return for no infinite loops
 }

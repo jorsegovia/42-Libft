@@ -16,8 +16,10 @@ Parameters content:
 
 Return value
 	The new node
+
 External functs.
 	malloc
+
 Description
 	Allocates (with malloc(3)) and returns a new node.
 	The member variable ’content’ is initialized with 
@@ -29,5 +31,12 @@ Description
 
 t_list *ft_lstnew(void *content)
 {
+	t_list *list;
 
+	list = malloc(sizeof(t_list) * 1);	//try to allocate memory
+	if (!list)
+		return (NULL);
+	list->content = content;	//load variables as requested
+	list->next = NULL;
+	return (list);
 }

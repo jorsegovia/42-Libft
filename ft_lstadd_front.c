@@ -26,5 +26,6 @@ Description
 
 void ft_lstadd_front(t_list **lst, t_list *new)
 {
-
+	new->next = *lst;	//use new a as base list then add lst to it
+	*lst = new;			//overwrite lst with the value of new
 }
