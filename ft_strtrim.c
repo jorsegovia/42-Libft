@@ -54,20 +54,21 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	start = 0;
 	end = ft_strlen(s1);
-	//frontstart
 	while (s1[start] && ft_checkset(set, s1[start]))
 		start++;
-	//backstart
 	while (end > start && ft_checkset(set, s1[end - 1]))
 		end--;
-	//save the trimmed result
 	res = (char *)malloc(sizeof(*s1) * (end - start + 1));
 	if (!res)
 		return (NULL);
-	//add the ending \0
 	len = 0;
 	while (start < end)
 		res[len++] = s1[start++];
 	res[len] = 0;
 	return (res);
 }
+
+//57: front start
+//59: back start
+//61: save the trimmed result
+//64: add the ending \0
