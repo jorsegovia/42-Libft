@@ -33,12 +33,7 @@ char	*ft_strdup(const char *s1)
 
 	str = (char *)malloc(sizeof(*s1) * (ft_strlen(s1) + 1));
 	if (!str)
-	{//As per man strdup 
-	//If insufficient memory is available, 
-	//NULL is returned and errno is set to ENOMEM.
-		errno = ENOMEM;
 		return (NULL);
-	}
 	i = 0;
 	while (s1[i])
 	{
@@ -48,3 +43,8 @@ char	*ft_strdup(const char *s1)
 	str[i] = 0;
 	return (str);
 }
+
+//As per man strdup 
+//If insufficient memory is available, 
+//NULL is returned and errno is set to ENOMEM.
+//36:	errno = ENOMEM;
