@@ -55,25 +55,19 @@ char	*ft_itoa(int n)
 	long	num;
 
 	num = n;
-	isneg = (n < 0);//check for neg
+	isneg = (n < 0);
 	len = ft_getlen(num);
-	//assign memory
 	str = malloc(sizeof(char) * (len + 1));
-	//check memory assignation
 	if (!str)
 		return (NULL);
-	//write str end char
 	str[len--] = '\0';
-	//write neg if needed
 	if (isneg)
 	{
 		str[0] = '-';
 		num = num * -1;
 	}
-	//plan for n = 0
 	if (num == 0)
 		str[0] = '0';
-	//run the conversion
 	while (num > 0)
 	{
 		str[len--] = num % 10 + '0';
@@ -81,3 +75,11 @@ char	*ft_itoa(int n)
 	}
 	return (str);
 }
+
+//58: check for neg
+//60: assign memory
+//61: check memory assignation
+//63: write str end char
+//64: write neg if needed
+//69: plan for n = 0
+//71: run the conversion
