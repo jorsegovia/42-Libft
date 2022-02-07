@@ -23,12 +23,6 @@ typedef struct s_list
 	struct s_list	*next;
 }t_list;
 
-typedef struct s_split_next
-{
-	size_t	start;
-	size_t	length;
-}t_split_next;
-
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, int n);
 void	*ft_calloc(size_t count, size_t size);
