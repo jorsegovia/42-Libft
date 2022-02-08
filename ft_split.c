@@ -30,7 +30,7 @@ Description
 
 #include "libft.h"
 
-static void	memfree(char **res, int n)
+static char	**memfree(char **res, int n)
 {
 	int	count;
 
@@ -38,27 +38,33 @@ static void	memfree(char **res, int n)
 	while (++count <= n)
 		free(res[count]);
 	free(res);
+	return (NULL);
 }
 
-static char	*setword(char c, char const *s)
+static char	*setword(char const *s, char c, int *pos)
 {
 	int		count;
+	int		len;
 	char	*word;
 
+	len = 0;
+	while (s[(*pos) + len] && s[(*pos) + len] != c)
+		len++;
 	count = 0;
-	while (s[count] && c != s[count])
-		count++;
-	word = malloc(sizeof(char) * (count + 1));
+	word = malloc(sizeof(char) * (len + 1));
 	if (!word)
 		return (NULL);
-	count = -1;
-	while (s[++count] && c != s[count])
-		word[count] = s[count];
+	while (count < len)
+	{
+		word[count] = s[(*pos)];
+		count++;
+		(*pos)++;
+	}
 	word[count] = '\0';
 	return (word);
 }
 
-static int	countword(char const *s, char c)
+static int	countwords(char const *s, char c)
 {
 	int	count;
 	int	res;
@@ -67,12 +73,9 @@ static int	countword(char const *s, char c)
 	res = 0;
 	while (s[count])
 	{
-		while (s[count] && c == s[count])
-			count++;
-		if (s[count] && c != s[count])
+		if (s[count] == c && s[count - 1] != c)
 			res++;
-		while (s[count] && c != s[count])
-			count++;
+		count++;
 	}
 	return (res);
 }
@@ -81,30 +84,45 @@ char	**ft_split(char const *s, char c)
 {
 	int		count;
 	int		counter;
+	int		wordcount;
 	char	**res;
 
 	if (!s)
 		return (NULL);
-	res = malloc(sizeof(char *) * (countword(s, c) + 1));
+	wordcount = countwords(s, c);
+	res = malloc(sizeof(char *) * (countwords(s, c) + 1));
 	if (!res)
 		return (NULL);
 	count = 0;
 	counter = 0;
-	while (s[count])
+	while (s[count] && counter < wordcount)
 	{
-		while (s[count] && c == s[count])
-			count++;
-		if (s[count] && c != s[count])
+		if (s[count] != c)
 		{
-			if ((res[counter++] = setword(c, &s[count])) == NULL)
-			{
-				memfree(res, counter - 1);
-				return (NULL);
-			}
-			while (s[count] && c != s[count])
-				count++;
+			res[counter++] = setword(s, c, &count);
+			if (!res[counter - 1])
+				return (memfree(res, counter - 1));
 		}
+		count++;
 	}
 	res[counter] = 0;
 	return (res);
 }
+
+/*
+concepts:
+word	-> the splits of str s using char c
+
+33	: free the memory allocated for the str res;
+51	: get the word length
+54	: memory asignation and protection
+57	: loop to save the corresponding char on the str word
+63	: fill the last position with end of str char
+74	: loop the str while searching for instances of char c to get wordcount
+93	: check for correct str argument
+95	: check the wordcount 
+96	: memory asignation and protection
+101	: loop the str while looking for words
+107	: free memory if word cannot be saved
+111	: fill the last position with end of str char
+*/
