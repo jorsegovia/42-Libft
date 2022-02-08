@@ -57,7 +57,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}
 	return (res);
 }
-//39: Check if lst exists and if its content is valid
-//43: run through the list
-//46: Apply f to each node
-//48: if not possible clear and return
+//43: Check if lst exists and if its content is valid
+//47: run through the list
+//50: Apply f to each node
+//53: if not possible clear and return
