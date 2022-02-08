@@ -38,18 +38,27 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	if (!needle[0])
 		return ((char *)haystack);
 	count = 0;
-	counter = 0;
-	while (haystack[count] != '\0' && count < len)
+	while (count < len && haystack[count])
 	{
-		while (haystack[count + counter] == needle[counter]
-			&& (count + counter < len) && haystack[count + counter]
-			&& needle [counter])
+		counter = 0;
+		while ((count + counter < len)
+			&& needle[counter] == haystack[count + counter])
 		{
+			if (needle[counter + 1] == '\0')
+				return ((char *)&haystack[count]);
 			counter++;
 		}
-		if (!needle[counter])
-			return ((char *)(haystack + count));
 		count++;
 	}
 	return (NULL);
 }
+
+/*
+38	: Check the needele is a working str
+41	: loop the haystack
+	  using the first loop var
+44	: loop while the current pos of haystack is equal to pos of needle
+	  using the second loop var
+47	: if end of needle str; return the position of haystack
+53	: if no instances of needle found; return null
+*/
