@@ -91,3 +91,23 @@ char	**ft_split(char const *s, char c)
 	res[count[1]] = 0;
 	return (res);
 }
+
+// word : fragment to split
+
+//20    : loop to free each instance of res
+//25    : free res proper
+//35    : get word length
+//37    : allocate memory for word and check iterate
+//40    : restart the counter to -1 for the while loop
+//41    : loop to write the word from s into the allocated memory
+//56    : loop to find the start of word
+//58    : find s[] != c -> start of a word and add to length
+//60    : loop to find the end of word
+//71    : check str for protection
+//73    : create and check the res malloc
+//78    : loop to iterate the str
+//80    : iter str while s[] == c
+//82    : Find s[] != c -> start of a word
+//84    : fill res with the word found
+//85    : Check if res is correct
+//87    : loop to go to end of word
