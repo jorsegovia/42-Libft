@@ -10,61 +10,41 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-Parameters
-	s: The string to be split.
-	c: The delimiter character.
-
-Return value 
-	The array of new strings resulting from the split.
-	NULL if the allocation fails.
-
-External functs
-	malloc, free
-
-Description
-	Allocates (with malloc(3)) and returns an array of strings obtained 
-	by splitting ’s’ using the character ’c’ as a delimiter.
-	The array must end with a NULL pointer
-*/
-
 #include "libft.h"
 
-static char	**memfree(char **res, int n)
+static char	**freemem(char **res, int n)
 {
 	int	count;
 
-	count = -1;
-	while (++count <= n)
+	count = 0;
+	while (count < n)
+	{
 		free(res[count]);
+		count++;
+	}
 	free(res);
 	return (NULL);
 }
 
-static char	*setword(char const *s, char c, int *pos)
+static char	*setword( char const *s, char c)
 {
 	int		count;
-	int		len;
 	char	*word;
 
-	len = 0;
-	while (s[(*pos) + len] && s[(*pos) + len] != c)
-		len++;
 	count = 0;
-	word = malloc(sizeof(char) * (len + 1));
+	while (s[count] && c != s[count])
+		count++;
+	word = malloc(sizeof(char) * (count + 1));
 	if (!word)
 		return (NULL);
-	while (count < len)
-	{
-		word[count] = s[(*pos)];
-		count++;
-		(*pos)++;
-	}
+	count = -1;
+	while (s[++count] && c != s[count])
+		word[count] = s[count];
 	word[count] = '\0';
 	return (word);
 }
 
-static int	countwords(char const *s, char c)
+static int	wordcount(char const *s, char c)
 {
 	int	count;
 	int	res;
@@ -73,56 +53,41 @@ static int	countwords(char const *s, char c)
 	res = 0;
 	while (s[count])
 	{
-		if (s[count] == c && s[count - 1] != c)
+		while (s[count] && c == s[count])
+			count++;
+		if (s[count] && c != s[count])
 			res++;
-		count++;
+		while (s[count] && c != s[count])
+			count++;
 	}
 	return (res);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	int		count;
-	int		counter;
-	int		wordcount;
+	int		count[2];
 	char	**res;
 
 	if (!s)
 		return (NULL);
-	wordcount = countwords(s, c);
-	res = malloc(sizeof(char *) * (countwords(s, c) + 1));
+	res = malloc(sizeof(char *) * (wordcount(s, c) + 1));
 	if (!res)
 		return (NULL);
-	count = 0;
-	counter = 0;
-	while (s[count] && counter < wordcount)
+	count[0] = 0;
+	count[1] = 0;
+	while (s[count[0]])
 	{
-		if (s[count] != c)
+		while (s[count[0]] && c == s[count[0]])
+			count[0]++;
+		if (s[count[0]] && c != s[count[0]])
 		{
-			res[counter++] = setword(s, c, &count);
-			if (!res[counter - 1])
-				return (memfree(res, counter - 1));
+			res[count[1]++] = setword(&s[count[0]], c);
+			if (!res)
+				return (freemem(res, count[1] - 1));
+			while (s[count[0]] && c != s[count[0]])
+				count[0]++;
 		}
-		count++;
 	}
-	res[counter] = 0;
+	res[count[1]] = 0;
 	return (res);
 }
-
-/*
-concepts:
-word	-> the splits of str s using char c
-
-33	: free the memory allocated for the str res;
-51	: get the word length
-54	: memory asignation and protection
-57	: loop to save the corresponding char on the str word
-63	: fill the last position with end of str char
-74	: loop the str while searching for instances of char c to get wordcount
-93	: check for correct str argument
-95	: check the wordcount 
-96	: memory asignation and protection
-101	: loop the str while looking for words
-107	: free memory if word cannot be saved
-111	: fill the last position with end of str char
-*/
