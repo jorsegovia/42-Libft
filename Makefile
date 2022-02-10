@@ -31,11 +31,11 @@ CFLAGS	=	-Wall -Wextra -Werror
 
 NAME	=	libft.a
 
-all:	$(NAME)
-
 $(NAME):	$(OBJS)	$(OBJS_A)
 			ar	rcs	$(NAME)	$(OBJS)	$(OBJS_A)
 			ranlib	$(NAME)
+
+all:	$(NAME)
 
 base:	$(OBJS)
 		ar	rcs	$(NAME)	$(OBJS)
