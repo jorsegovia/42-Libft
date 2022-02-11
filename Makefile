@@ -31,6 +31,7 @@ CFLAGS	=	-Wall -Wextra -Werror
 
 NAME	=	libft.a
 BONUS	= .
+#The variables are used to store the previous exec attempts
 
 $(NAME):	$(OBJS)	$(OBJS_A)
 			ar	rcs	$(NAME)	$(OBJS)
