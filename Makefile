@@ -36,9 +36,9 @@ BONUS	= .
 $(NAME):	$(OBJS)	$(OBJS_A)
 			ar	rcs	$(NAME)	$(OBJS)	$(OBJS_A)
 			ranlib	$(NAME)
-
+# $@ can be used to reference all dependencies
 #$(ADD):		$(OBJS)	$(OBJS_A)
-#			ar	rcs	$(NAME)	$(OBJS)	$(OBJS_A)
+#			ar	rcs	$(NAME)	$@
 #			ranlib	$(NAME)
 
 $(BONUS):	$(OBJS)	$(OBJS_A)	$(OBJS_B)
